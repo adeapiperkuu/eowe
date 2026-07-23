@@ -51,7 +51,7 @@ Stop with `Ctrl+C`, or run detached with `docker compose up --build -d`.
 
 ```powershell
 cd backend
-python -m venv .venv
+python -m venv .venv or py -3.10 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 pip install -r requirements-dev.txt
