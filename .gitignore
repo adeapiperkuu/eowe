@@ -1,6 +1,6 @@
 # Environment / secrets — never commit
+# (.env.example is intentionally NOT ignored — it holds variable names only)
 .env
-.env.example
 .env.local
 .env.*.local
 

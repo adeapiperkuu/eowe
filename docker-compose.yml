@@ -1,4 +1,21 @@
 services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-eowe}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-eowe}
+    ports:
+      # SECURITY_STANDARDS §10: dev-only port, bind localhost only
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-eowe} -d $${POSTGRES_DB:-eowe}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
   backend:
     build: ./backend
     ports:
@@ -7,6 +24,11 @@ services:
       - ./.env
     volumes:
       - ./backend/app:/code/app
+      - ./backend/alembic:/code/alembic
+      - ./backend/alembic.ini:/code/alembic.ini
+    depends_on:
+      db:
+        condition: service_healthy
 
   frontend:
     build: ./frontend
@@ -19,3 +41,6 @@ services:
       - /app/node_modules
     depends_on:
       - backend
+
+volumes:
+  pgdata:
