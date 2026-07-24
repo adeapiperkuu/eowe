@@ -41,7 +41,7 @@ docker compose up --build
 |---|---|
 | Backend API | http://localhost:8000 |
 | Health check | http://localhost:8000/health |
-| Frontend | http://localhost:5173 |
+| Frontend | http://localhost:3000 |
 
 Stop with `Ctrl+C`, or run detached with `docker compose up --build -d`.
 
