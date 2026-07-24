@@ -1,0 +1,202 @@
+/* Color palette — the ONLY colors used in this component. */
+.page {
+  --primary: #610C0B;
+  --primary-hover: #8b1210;
+  --background: #ffffff;
+  --card: #ffffff;
+  --card-border: #e5e5e5;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --input-border: #e0e0e0;
+
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  background-color: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.brandPanel {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px;
+  overflow: hidden;
+  background-color: var(--primary);
+}
+
+.brandOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--primary);
+}
+
+.brandContent {
+  position: relative;
+  margin: auto 0;
+  max-width: 420px;
+}
+
+.brandLogo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--background);
+  margin-bottom: 40px;
+}
+
+.brandTagline {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--background);
+  margin: 0 0 16px;
+}
+
+.brandSubtext {
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+}
+
+.brandFooter {
+  position: relative;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.formPanel {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .brandPanel {
+    display: none;
+  }
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 40px 32px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.logoMark {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--primary);
+  margin: 0 auto 20px;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: var(--text-primary);
+  background-color: var(--background);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(168, 24, 21, 0.12);
+}
+
+.input.invalid {
+  border-color: var(--primary);
+}
+
+.error {
+  font-size: 12px;
+  color: var(--primary);
+}
+
+.button {
+  margin-top: 4px;
+  width: 100%;
+  padding: 13px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--background);
+  background-color: var(--primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.button:hover {
+  background-color: var(--primary-hover);
+}
+
+.forgot {
+  align-self: flex-end;
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.forgot:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
